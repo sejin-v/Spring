@@ -1,0 +1,8 @@
+package com.spring;
+
+public class Cat {
+	String catName;
+	int catAge;
+	
+	
+}

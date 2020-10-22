@@ -1,0 +1,17 @@
+package com.dto;
+
+public class Student {
+	
+	private String name;
+	private int age;
+	//	public Student(){} //사욪ㅇ자가 생성자 작성시 기본생성자가 사라짐 
+	public Student(String name) {//생성자 작성
+		super();
+		System.out.println("stu 인자있는 생성자 호출");
+		this.name = name;
+	}
+	
+	public String getInfo() {
+		return name;
+	}
+}

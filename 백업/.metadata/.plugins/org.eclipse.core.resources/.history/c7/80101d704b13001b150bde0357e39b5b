@@ -1,0 +1,25 @@
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import com.dto.Cat;
+import com.dto.Student;
+
+public class TestStudent {
+
+	public static void main(String[] args) {
+		
+		GenericXmlApplicationContext ctx=
+				new GenericXmlApplicationContext("classpath:stu.xml");
+
+		Map<String, Student> map=ctx.getBean("name",Map.class);
+
+		Set<String> keys=map.keySet();
+		
+		for(String x:keys) {
+			System.out.println(x);
+		}
+	}
+}

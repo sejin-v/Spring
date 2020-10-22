@@ -1,0 +1,27 @@
+package com.dto;
+
+public class Student {
+	
+	private String name;
+	
+	public Student() {
+		super();
+		System.out.println("stu 기본생성자 호출");
+		
+		// TODO Auto-generated constructor stub
+	}
+
+	public Student(String name) {
+		super();
+		System.out.println("stu 인자있는 생성자 호출");
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}

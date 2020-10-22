@@ -1,0 +1,12 @@
+package com.dao;
+
+import java.util.Arrays;
+
+import antlr.collections.List;
+
+public class DeptDAO {
+
+	private List list(){
+		return Arrays.asList("홍길동","이순신","유관순");
+	}
+}

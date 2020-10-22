@@ -1,0 +1,16 @@
+package com.spring;
+
+public class Person {
+	
+	public Person (String x) {
+		System.out.println("Person생성자");
+	}
+	
+	public Person(String x,String y) {
+		System.out.println("Person 생성자"+x+"/t"+y);
+	}
+	
+	public Person (String xx,String yy) {
+		System.out.println("Person 생성자"+xx+"/t"+yy);
+	}
+}

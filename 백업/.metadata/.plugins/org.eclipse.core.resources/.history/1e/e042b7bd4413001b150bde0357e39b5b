@@ -1,0 +1,19 @@
+package com.spring;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class PersonTest {
+
+	public static void main(String[] args) {
+
+		GenericXmlApplicationContext ctx=
+				new GenericXmlApplicationContext("echo1.xml");
+		
+		GenericXmlApplicationContext ctx2=
+				new GenericXmlApplicationContext("echo2.xml");
+		
+		Person p=ctx2.getBean("onePerson",Person.class);
+		
+		System.out.println(p);
+		
+	}
+}

@@ -1,0 +1,23 @@
+package com.dto;
+
+public class Student {
+	
+	private String name;
+	private int age;
+	public Student() {
+		System.out.println("기본 생성자 호출 ");
+	}
+	public Student(String name, int age) {
+		super();
+		
+		this.name = name;
+		this.age = age;
+	}
+	
+	public void aaa() {
+		System.out.println("init-method.aaa");
+		this.name="홍길동";
+	}
+	
+	
+}

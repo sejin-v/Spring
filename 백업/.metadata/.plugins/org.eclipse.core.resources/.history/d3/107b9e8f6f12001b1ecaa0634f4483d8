@@ -1,0 +1,9 @@
+package com.dto;
+
+public class Student {
+	
+	private String name;
+	
+	//	public Student(){} //사욪ㅇ자가 생성자 작성시 기본생성자가 사라짐 
+	
+}

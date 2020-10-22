@@ -1,0 +1,10 @@
+package com.dao;
+
+
+
+public class DeptDAO {
+
+	private List<String> list(){
+		return Arrays.asList("홍길동","이순신","유관순");
+	}
+}

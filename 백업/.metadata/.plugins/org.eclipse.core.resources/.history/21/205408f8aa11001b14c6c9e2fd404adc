@@ -1,0 +1,26 @@
+package com.dto;
+
+public class Student {
+	
+	private String name;
+	
+
+	public Student(String name) {
+		super();
+		System.out.println("stu 인자있는 생성자 호출");
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + "]";
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}

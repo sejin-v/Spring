@@ -1,0 +1,17 @@
+package com.service;
+
+import java.util.List;
+
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import com.dao.DeptDAO;
+
+public class DeptService {
+	
+	
+		
+	DeptDAO dao;//new 가 사라지고 .xml에서 주입
+	
+	
+
+}

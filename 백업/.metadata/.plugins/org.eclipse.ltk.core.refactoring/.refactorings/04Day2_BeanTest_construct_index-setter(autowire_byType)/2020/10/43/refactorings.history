@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;PersonTest.java&apos; to &apos;04Day2_BeanTest_construct_index-setter(autowire_byType)/src/main/java/com.spring&apos;&#x0D;&#x0A;- Original project: &apos;04Day2_BeanTest_construct_index-setter(autowire_byType)&apos;&#x0D;&#x0A;- Destination element: &apos;04Day2_BeanTest_construct_index-setter(autowire_byType)/src/main/java/com.spring&apos;&#x0D;&#x0A;- Original element: &apos;PersonTest.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src\/main\/java&lt;com.spring" element1="/src\/main\/java&lt;{PersonTest.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1603245069662" units="1" version="1.0"/>
+</session>

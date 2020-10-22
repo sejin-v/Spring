@@ -1,0 +1,16 @@
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import com.dao.DeptDAO;
+
+public class TestStudent {
+
+	public static void main(String[] args) {
+		GenericXmlApplicationContext ctx=
+				new GenericXmlApplicationContext("classpath:dao.xml");
+		
+		DeptDAO dao=ctx.getBean("service",DeptDAO.class);
+		System.out.println(dao);
+
+	}
+
+}

@@ -1,0 +1,79 @@
+package com.service;
+
+import java.util.List;
+
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import com.dao.DeptDAO;
+
+public class DeptService {
+	
+	private String driver;
+	private String url;
+	private String userid;
+	private String pass;
+	
+	
+	
+	public String getDriver() {
+		return driver;
+	}
+
+
+
+	public void setDriver(String driver) {
+		this.driver = driver;
+	}
+
+
+
+	public String getUrl() {
+		return url;
+	}
+
+
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+
+
+	public String getUserid() {
+		return userid;
+	}
+
+
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+
+
+	public String getPass() {
+		return pass;
+	}
+
+
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	DeptDAO dao;//new 가 사라지고 .xml에서 주입
+	
+	public DeptService() {}
+	
+	
+	
+	public DeptService(DeptDAO dao) {
+		System.out.println("deptservice 생성자 호출됨");
+		this.dao=dao;
+	}
+
+	public List<String> list(){
+		System.out.println("deptservice list()호출==");
+		 return dao.list();
+	}
+}

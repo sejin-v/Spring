@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="01Day3_resource22"/>
+<aop-project name="01Day5_multi"/>
+<aop-project name="02Day3_getbean"/>
+<aop-project name="02Day5_constructor_injection"/>
+<aop-project name="03Day5_setter_injection5_p"/>
+<aop-project name="02Day4_getben2"/>
+<aop-project name="02Day5_constructor_injection2"/>
+<aop-project name="03Day8_setter_collection_map_util"/>
+<aop-project name="01Day4_classpath"/>
+<aop-project name="03Day7_setter_collection_list2"/>
+<aop-project name="03Day2_setter_injection"/>
+<aop-project name="02Day6_test2"/>
+<aop-project name="01Day_Template"/>
+<aop-project name="01Day2_package"/>
+<aop-project name="01Day3_resource"/>
+<aop-project name="03Day4_setter_injection3"/>
+<aop-project name="00Day"/>
+<aop-project name="03Day6_setter_collection_list"/>
+<aop-project name="02Day5_constructor_injection4"/>
+<aop-project name="02Day2_import"/>
+<aop-project name="02Day1_multi2"/>
+<aop-project name="03Day1_constructor_scope"/>
+<aop-project name="03Day5_setter_injection4_cat"/>
+<aop-project name="01Day5_file"/>
+<aop-project name="03Day7_setter_collection_set"/>
+<aop-project name="02Day5_constructor_injection3"/>
+<aop-project name="03Day5_setter_injection4_cat_p"/>
+<aop-project name="03Day8_setter_collection_map"/>
+<aop-project name="03Day3_setter_injection2"/>
+<aop-project name="03Day7_setter_collection_set_util"/>
+<aop-project name="02Day6_test"/>
+</aop-reference-model>

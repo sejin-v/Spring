@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<bean id="cat" class="com.dto.Cat">
+		<constructor-arg name="catName" value="보리" />
+		<constructor-arg name="catAge" value="1"></constructor-arg>
+	</bean>
+
+	<bean id="cat2" class="com.dto.Cat">
+		<constructor-arg name="catAge" value="3" />
+		<constructor-arg name="catName" value="뭉찌" />
+	</bean>
+
+	<util:properties id="test">
+			<prop key="one">011</prop>
+			<prop key="two">010</prop>
+			<prop key="three">017</prop>
+	</util:properties>
+
+	<util:properties location="classpath:com/config/jdbc.properties"></util:properties>
+
+	<bean id="firstStudent" class="com.dto.Student">
+		<property name="phones">
+				<ref bean="test" />
+		</property>
+
+		<property name="name" value="김혜빈 강아지 모음집" />
+		<!--property 는 set 함수를 부르고 name 안에 setname를 설정 value 를 통해 값을 넣어준다 -->
+		<property name="age" value="26" />
+		<property name="mapCat">
+			<map>
+				<entry key="one">
+					<ref bean="cat"></ref>
+				</entry>
+				<entry key="two" value-ref="cat2" />
+			</map>
+		</property>
+	</bean>
+</beans>
