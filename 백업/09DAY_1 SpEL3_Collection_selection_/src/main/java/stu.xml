@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:util="http://www.springframework.org/schema/util"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+      http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+   <!-- annotation사용 -->
+   <context:annotation-config />
+   <util:list id="xxx">
+      <bean id="s1" class="com.dto.Student" p:name="홍길동" p:age="30"
+         p:married="true" p:weight="78.6" />
+      <bean id="s2" class="com.dto.Student" p:name="이순신" p:age="40"
+         p:married="false" p:weight="75.6" />
+      <bean id="s3" class="com.dto.Student" p:name="정조" p:age="10"
+         p:married="true" p:weight="40" />
+      <bean id="s4" class="com.dto.Student" p:name="유관순" p:age="23"
+         p:married="false" p:weight="30" />
+   </util:list>
+
+
+   <bean id="list" class="com.dto.ListStudent">
+      <property name="list" value="#{xxx.?[age gt 25]}" /><!--나이가25이상인 list필터링 후 setList로 주입  -->
+   </bean>
+   <bean id="list2" class="com.dto.ListStudent">
+      <property name="list"
+         value="#{xxx.?[age gt 10 and age lt 23 and married==true]}" />
+   </bean>
+</beans>
