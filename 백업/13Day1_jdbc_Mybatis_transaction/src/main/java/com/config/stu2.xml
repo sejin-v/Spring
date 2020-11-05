@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:tx="http://www.springframework.org/schema/tx"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+ 
+   <context:annotation-config />
+ 
+ <!-- /////시작//// --> 
+   <!-- 1. jdbc.properties -->
+   <context:property-placeholder 
+   location="classpath:com/config/jdbc.properties"/>
+   
+   <!-- 2. DBCP2 -->
+  <bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${userid}" />
+		<property name="password" value="${password}" />
+	</bean>
+
+   
+   <!-- transaction 처리 시작 -->
+   <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <property name="dataSource" ref="dataSource" />
+   </bean>
+   <tx:annotation-driven transaction-manager="txManager"/>
+   <!-- transaction 처리종료 -->
+   
+   <!-- 3. SqlSessionFactoryBean -->
+   <bean id="sessionFactory"  class="org.mybatis.spring.SqlSessionFactoryBean">
+     <property name="dataSource" ref="dataSource" />
+     <property name="mapperLocations">
+      <list>
+        <value>classpath:com/config/DeptMapper.xml</value>
+      </list>
+     </property>
+     <property name="typeAliases">
+      <list>
+         <value>com.dto.DeptDTO</value>
+      </list>
+     </property>
+   </bean>
+   <!-- 4. SqlSessionTemplate , DAO에서 db연동에 사용 sqlSession과 같은 기능 -->
+   <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+     <constructor-arg name="sqlSessionFactory" ref="sessionFactory"/>
+   </bean>
+  <!-- /////종료////// --> 
+  <bean id="dao" class="com.dao.DeptDAO"/><!-- autoWired용 빈 생성 -->
+  <bean id="service" class="com.service.DeptService"/><!-- 메인에서 get해서 사용하기 위한  빈 생성 -->
+  
+  
+  
+  
+</beans>

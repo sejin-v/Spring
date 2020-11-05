@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- 프로퍼티읽고 데이터소스만들고 마이바티스 세션만드는 것까지 한다 -->
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.*"></context:component-scan>
+
+	<!-- 1.시작 -->
+	<context:property-placeholder
+		location="com/config/jdbc.properties" />
+
+	<!-- 2.DBCP -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${userid}" />
+		<property name="password" value="${password}" />
+	</bean>
+
+	<!-- 3.sqlsessionFactoryBean --><!-- MySqlSessionFactory -->
+	<bean id="sessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations"><!-- mapper정보 -->
+			<list>
+				<value>classpath:com/config/DeptMapper.xml</value>
+			</list>
+		</property>
+		<property name="typeAliases"><!-- DTO지정 -->
+			<list>
+				<value>com.dto.DeptDTO</value><!-- 실제 Alias는 각클래스에서 @Alias() 사용지정 -->
+			</list>
+		</property>
+	</bean>
+ <!-- ㄷdb정보 읽어서 컨넥션 연결하고 세션팩토리가 맵퍼랑 dto정보를 가지고 있다 여기까지  -->
+ 
+ 
+ 	<!-- 4.SqlsessionTemplate --><!-- SqlSession -->
+ 	<bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+ 		<constructor-arg name="sqlSessionFactory" ref="sessionFactory"></constructor-arg>
+ 	</bean>
+ 	<!-- 종료!! -->
+ 	
+ 	<bean id="dao" class="com.dao.DeptDAO" />
+ 	<bean id="service" class="com.service.DeptService" />
+
+</beans>
